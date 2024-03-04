@@ -1,0 +1,39 @@
+link dataset: https://docs.google.com/spreadsheets/d/1QRkko492rvho1AS3rO-KNxXy1VX1bMega_ZjntfIGLM/edit?usp=sharing
+il link per accedere alla dashboard è questo: https://lookerstudio.google.com/reporting/43728509-944e-45d3-bc3e-4dc20341b6ee
+
+INFORMAZIONI TECNICHE:
+Ho deciso di misurare il tempo che ho passato ascoltando canzoni o podcast su spotify (giorno, ora inizio, ora fine, durata, momento giorno, titolo), mettendoci assieme dati relativi agli stessi (autore, album della caznone o nome del podcast). Oltre a questi ho aggiunto, solo per le canzoni, i valori corrispondenti che identificano quella determinata canzone in termini di ballabilità, energia, chiave, tono, acustica, valenza e tempo. Tutto ciò è stato possibile grazie soprattutto alla funzione CERCA.VERT() e grazie ad alcuni strumenti presenti online (spotify web API ed exportify). Se può interessare dentro al file zip sono presenti anche i file che ho usato per le misurazioni.
+
+I dati li ho importati su Google Looker tramite Google Fogli, ma c'è stato un problema per quanto riguarda la durata delle tracce, ossia che Google Looker non riusciva a riconoscere questo tipo di dato (formato hh:mm:ss). Cercando un po' su internet ho scoperto che bisogna creare un campo con all'interno una funzione che mi estragga l'ora, i minuti e i secondi e solo così google looker mi accetta questi dati come tipo "durata".
+Anche per i dati ora inizio e ora fine ci sono stati problemi, ma ho preferito ignorare questa cosa per non togliere tempo al resto del lavoro.
+Ho voluto unire la tabella Misurazioni con la tabella caratteristiche tecniche canzoni perchè la prima contiene valori errati che non ho avuto il tempo di sistemare.
+
+Funzionalità particolari:
+Nella prima pagina ho creato un drill down nella tabella mappa termica, in cui è possibile selezionare il titolo dell'album o del podcast e visualizzare le tracce che sono state ascoltate.
+Il tema della dashboard l'ho personalizzato in base ai colori di spotify, grazie ad una palette creata su https://coolors.co/image-picker (ho cercato un'immagine di un logo spotify).
+
+COSA CAPIAMO GRAZIE A QUESTI DATI?
+In termini di durata, ciò che ho ascoltato di più è l'episodio con Frank Matano del podcast "Tintoria", seguito dagli episodi con Madame e con Barbascura X. Questo però è dovuto alla definizione stessa di podcast, che non possono essere confrontati allo stesso modo con le canzoni. Tra quelle più ascoltate (come n° di riproduzioni e non per durata) figurano "K.O." (di Gemitaiz), "FREE SOLO" (di Ghali) e Password (di Luchè), che sono state riprodotte rispettivamente 34, 27 e 26 volte nell'arco di tutto il corso Digichamps (5 Dicembre 2023 - 3 Marzo 2024).
+Il tempo totale che ho passato ad ascoltare Spotify è pari a 47 ore, 50 minuti e 16 secondi, mentre la durata media di ascolto si aggira intorno ai 4 minuti e 40 secondi. La deviazione standard è alta (6 minuti e 11 secondi) perchè vengono considerati anche gli episodi dei podcast (se filtriamo con il grafico a torta per "canzone" il valore si abbassa a 25 secondi). Il giorno della settimana per cui ho passato più tempo su Spotify è il Sabato (mattina), seguito dal Giovedì e dal Mercoledì, mentre il momento della giornata più occupato da questa attività (su tutti i giorni della settimana) era la sera.
+
+Gli autori che ho ascoltato di più però sono (in ordine) Lazza, Salmo e Marracash, ma quest'ultimo nella classifica degli album più ascoltati viene superato da "Sensazione ultra" di Ghali. Al primo posto di questa classifica c'è SIRIO (di Lazza) e al secondo FLOP di SALMO, anche se la canzone più ascoltata di SIRIO è solo al 4° posto per numero di volte che è stata ascoltata tra tutte le canzoni.
+
+Premessa per la seconda dashboard:
+Ballabilità = La ballabilità descrive quanto una traccia sia adatta per ballare. Questo parametro viene dato in base a una combinazione di elementi tra cui tempo, stabilità del ritmo, forza del battito e regolarità complessiva. Un valore pari a 0 è meno ballabile e 1 è più ballabile
+
+Energia = È un valore tra 0 e 1 e rappresenta una misura percettiva dell'intensità e attività della traccia. Tipicamente le tracce energetiche sembrano veloci, rumorose e chiassose. Per esempio, il death metal ha un'energia alta, mentre un preludio di Bach registra un punteggio basso sulla scala di valori. Le caratteristiche percettive che contribuiscono a questo parametro sono l'intervallo dinamico, volume percepito, timbro, n° di iniziazioni di suoni ed entropia generale
+Chiave = La chiave nella quale la traccia viene suonata. I numeri interi sono associati alle altezze usando la notazione standard delle classi di altezza. Ad esempio, 0 = Do, 1 = Do♯/Re♭, 2 = Re, e così via. Se non è stata rilevata alcuna chiave, il valore è -1.
+
+Tono = Il tono indica la modalità (maggiore o minore) di una traccia. È il tipo di scala dalla quale deriva il suo contenuto melodico. Maggiore è rappresentato da 1 e minore è 0
+
+Acusticità = Indica l'intensità della canzone. Si riferisce alla misura di quanto una traccia musicale è caratterizzata da suoni acustici, ossia suoni generati da strumenti reali anziché da strumenti elettronici o sintetizzatori. Un valore alto di "acousticness" indica una maggiore presenza di suoni acustici nella traccia, mentre un valore basso indica una maggiore presenza di suoni elettronici o sintetizzati.
+
+Valenza = Descrive la positività trasmessa da una traccia. Tracce con un suono ad alto valore sembrano più positive (felice, allegro, euforico), mentre tracce con basso valore sembrano più negative (tristi, deprimenti, rabbiose)
+
+Tempo = La misura complessiva del tempo di una traccia in battiti al minuto (BPM). Nella terminologia musicale, il tempo è la velocità o l'andatura di un dato pezzo e deriva direttamente dalla durata media del battito
+
+
+Tra le canzoni che ho ascoltato che hanno una migliore ballabilità ci sono WALLAH (di Ghali), Non Mi Regolo (Briga feat. Gemitaiz) e Ferrari - Remix (James Hype, Lazza), mentre quelle con un'energia maggiore sono HELLVISBACK 2 (di SALMO), MOLOTOV (di Lazza) e Bellissima (di Annalisa). Da notare che non ho mai ascoltato canzoni con un valore di energia inferiore a 0,500 .
+I cantanti che hanno i valori medi più alti nelle categorie ballabilità, energia, acusticità e valenza sono (in ordine) Vegas Jones, Annalisa, Luchè e Fedez. Bisogna precisare che questi valori sono condizionati dal numero di canzoni che ho ascoltato per ogni cantante, come per esempio Annalisa o Fedez, per i quali ho ascoltato soltanto una loro canzone (Bellissima e VIOLA), mentre per artisti come Lazza i valori di queste variabili possono variare di più tra una canzone e l'altra.
+Sarebbe stato interessante poter fare più confronti tra queste variabili ma per mancanza di tempo sono stato costretto ad analizzarle in modo superficiale.
+Per concludere, risulta da quest'analisi che sì sono un amante del genere rap italiano, i cui rappresentanti sono, appunto, Lazza, SALMO e Marracash, ma spendo un po' del mio tempo anche ad ascoltare episodi di podcast che possano svagarmi, tra cui soprattutto "Tintoria".
